@@ -7,3 +7,18 @@ let style = {
 }
 let card = elements.create("card", {style: style});
 card.mount("#card-element");
+
+card.on('change',({error}) => {
+    const displayError = document.getElementById('card-errors');
+    if(error){
+        displayError.textContent = error.message;
+    }else{
+        displayError.textContent='';
+    }
+
+})
+let form = document.getElementById('payment-form')
+
+form.addEventListener('submit', function(event){
+    event.preventDefault();
+})
